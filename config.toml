@@ -1,0 +1,20 @@
+
+
+
+[Server]
+# debug or release
+GinMode = "debug"
+Address = "127.0.0.1"
+Port = "8000"
+
+
+[DataBase]
+Url = "root:123@(localhost:3306)/example"
+
+
+[Redis]
+Address = "127.0.0.1:6379"
+Password =  ""
+MaxIdle = 30
+MaxActive = 30
+IdleTimeout = 200
