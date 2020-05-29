@@ -2,8 +2,7 @@ package config
 
 import (
 	"fmt"
-
-	"ttemplate/db"
+	"q9oa/database"
 
 	"github.com/spf13/viper"
 )
@@ -26,10 +25,15 @@ type Redis struct {
 	IdleTimeout int
 }
 
+type Jwt struct {
+	SignKey string
+}
+
 type Config struct {
 	Server   Server
 	Database DataBase
 	Redis    Redis
+	Jwt      Jwt
 }
 
 var Configuration *Config
@@ -49,5 +53,5 @@ func LoadAndInitConfig() {
 		panic(err)
 	}
 	Configuration = &Config
-	db.Init(Configuration.Database.Url)
+	database.Init(Configuration.Database.Url)
 }
